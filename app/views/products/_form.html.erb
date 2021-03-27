@@ -21,6 +21,44 @@
     <%= form.text_field :price %>
   </div>
 
+  <div class="field">
+    <%= form.label :discount_amount %>
+    <select name="product[discount_amount]" id="product_discount_amount">
+      <% Discount.all.each do |d| %>
+        <option value="<%= d.discount_amount %>"> <%= d.discount_amount %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount_percent %>
+    <select name="product[discount_percent]" id="product_percent">
+      <% Discount.all.each do |d| %>
+        <option value="<%= d.discount_percent %>"> <%= d.discount_percent %></option>
+      <% end %>
+    </select>
+  </div>
+  
+  <div class="field">
+    <%= form.label :unit1 %>
+    <%= form.number_field :unit1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit2 %>
+    <%= form.number_field :unit2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit3 %>
+    <%= form.number_field :unit3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :info %>
+    <%= form.text_area:info %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

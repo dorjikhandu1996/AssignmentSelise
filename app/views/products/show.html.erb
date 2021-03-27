@@ -6,8 +6,33 @@
 </p>
 
 <p>
+  <strong>Discount amount:</strong>
+  <%= @product.discount_amount %>
+</p>
+
+<p>
+  <strong>Discount percent:</strong>
+  <%= @product.discount_percent %>
+</p>
+
+<p>
   <strong>Price:</strong>
   <%= @product.price %>
+</p>
+
+<p>
+  <strong>Unit1:</strong>
+  <%= @product.unit1 %>
+</p>
+
+<p>
+  <strong>Unit2:</strong>
+  <%= @product.unit2 %>
+</p>
+<p>
+
+  <strong>Unit3:</strong>
+  <%= @product.unit3 %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

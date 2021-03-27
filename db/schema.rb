@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_154258) do
+ActiveRecord::Schema.define(version: 2021_03_26_181554) do
 
   create_table "discounts", force: :cascade do |t|
-    t.integer "product_id", null: false
     t.string "name"
     t.float "discount_amount"
     t.float "discount_percent"
-    t.integer "unit"
     t.datetime "start"
     t.datetime "end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_discounts_on_product_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -48,7 +45,12 @@ ActiveRecord::Schema.define(version: 2021_03_24_154258) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "unit1"
+    t.integer "unit2"
+    t.integer "unit3"
+    t.text "info"
+    t.float "discount_amount"
+    t.integer "discount_percent"
   end
 
-  add_foreign_key "discounts", "products"
 end

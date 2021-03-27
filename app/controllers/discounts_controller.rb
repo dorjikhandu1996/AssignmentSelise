@@ -12,8 +12,21 @@ class DiscountsController < ApplicationController
 
   # GET /discounts/new
   def new
-    @discount = Discount.new
+    @discount = Discount.new  
   end
+
+  # def update_cost
+  #   product = Product.find_by(id: discount_params[:product_id])
+  #   # if discount_params[:discount_amount]
+  #   #   unit_cost = product.cost - discount_params[:discount_amount]
+  #   # else
+  #   #   unit_cost = product.price * (discount_percent/100)
+  #   # end
+
+  #   discounted_price = discount_params[:discount_amount] ? product.cost - discount_params[:discount_amount] : product.price * (discount_percent/100)
+  #   product.update(price: discounted_price)
+  # end
+
 
   # GET /discounts/1/edit
   def edit
@@ -25,6 +38,7 @@ class DiscountsController < ApplicationController
 
     respond_to do |format|
       if @discount.save
+        # update_cost
         format.html { redirect_to @discount, notice: "Discount was successfully created." }
         format.json { render :show, status: :created, location: @discount }
       else
@@ -64,6 +78,6 @@ class DiscountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def discount_params
-      params.require(:discount).permit(:product_id, :name, :discount_amount, :discount_percent, :unit, :start, :end)
+      params.require(:discount).permit(:name, :discount_amount, :discount_percent, :start, :end)
     end
 end
