@@ -4,6 +4,7 @@ class OrderItemsController < ApplicationController
 
 
     def create
+        authorize @order_item
         @order = current_order
         @order_item = @order.order_items.new(order_params)
         @order.save
@@ -11,6 +12,7 @@ class OrderItemsController < ApplicationController
     end
 
     def update
+        authorize @order_item
         @order = current_order
         @order_item = @order.order_items.find(params[:id])
         @order_item.update(order_params)
@@ -18,6 +20,7 @@ class OrderItemsController < ApplicationController
     end
 
     def destroy
+        authorize @order_item
         @order = current_order
         @order_item = @order.order_items.find(params[:id])
         @order_item.destroy

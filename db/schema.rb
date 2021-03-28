@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_082808) do
+ActiveRecord::Schema.define(version: 2021_03_28_151017) do
 
   create_table "discounts", force: :cascade do |t|
     t.string "name"
@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(version: 2021_03_28_082808) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "unit1"
-    t.integer "unit2"
-    t.integer "unit3"
     t.text "info"
     t.float "discount_amount"
     t.integer "discount_percent"
