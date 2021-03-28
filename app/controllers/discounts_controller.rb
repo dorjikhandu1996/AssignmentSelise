@@ -35,8 +35,8 @@ class DiscountsController < ApplicationController
 
   # POST /discounts or /discounts.json
   def create
-    authorize @discount
     @discount = Discount.new(discount_params)
+    authorize @discount
 
     respond_to do |format|
       if @discount.save
@@ -52,8 +52,8 @@ class DiscountsController < ApplicationController
 
   # PATCH/PUT /discounts/1 or /discounts/1.json
   def update
-    authorize @discount
     respond_to do |format|
+      authorize @discount
       if @discount.update(discount_params)
         format.html { redirect_to @discount, notice: "Discount was successfully updated." }
         format.json { render :show, status: :ok, location: @discount }
@@ -66,8 +66,8 @@ class DiscountsController < ApplicationController
 
   # DELETE /discounts/1 or /discounts/1.json
   def destroy
-    authorize @discount
     @discount.destroy
+    authorize @discount
     respond_to do |format|
       format.html { redirect_to discounts_url, notice: "Discount was successfully destroyed." }
       format.json { head :no_content }
